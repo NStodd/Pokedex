@@ -1,5 +1,5 @@
 // Index, GET /pokemon
-
+app.get()
 // Show, GET /pokemon/:id
 
 // New, GET /pokemon/new
@@ -12,3 +12,6 @@
 
 // Destroy, DELETE /pokemon/:id
 
+app.listen(PORT, () => {
+    console.log(`you are listening on port ${PORT}`)
+})

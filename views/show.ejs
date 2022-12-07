@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon</title>
+    <%- include("./partials/head.ejs", {title: data.name})%>
 </head>
 <body>
-    
+    <% console.log(data) %> 
+    <div> <h3> <%= data.name %>  </h3> </div>
+    <div><img src=<%=data.img %> alt=""></div>
+    <div>
+        <ul>
+        <% data.type.forEach((item, index)=> { %>
+            <li><%=item %></li>
+        <% }) %> 
+        </ul>
+    </div>
+    <div>HP: <%=data.stats.hp%> </div>
+    <div>ATTACK: <%=data.stats.attack%> </div>
+    <div>DEFENSE: <%=data.stats.defense%> </div>
+    <form action=""></form>
+    <a href="/pokemon/<%=index%>/edit"> <button>Edit <%=data.name%> </button></a>
+    <form action="/pokemon/<%=index%>?_method=DELETE" method="post">
+        <input type="submit" value="Delete <%=data.name%>">
+    </form>
 </body>
 </html>
